@@ -131,15 +131,16 @@ function save_landing_pageinfo(elm) {
     var srd;
     if (!srd) srd = '7015g0000004xKA';
     var project = 'Excel Trident';
-    var utm_source = queryParameter('cstm_ppc_campaign',currentUrl);
-    var utm_medium = queryParameter('cstm_ppc_channel',currentUrl);
+    var utm_source = queryParameter('utm_source',currentUrl);
+    var utm_medium = queryParameter('utm_medium',currentUrl);
 
     // var project = 'Hubtown Harmony';
     // var utm_source = queryParameter('utm_source',currentUrl);
     // var utm_medium = queryParameter('utm_medium',currentUrl);
-    var sourceMapping = { 'Google_Brand%20Search' : "Google Search",
+    var sourceMapping = { 'google_search' : "Google Search",
         'google_display': "Google Display",
-        "Google%20Discovery": "Google Discovery",
+        "Discovery": "Google Discovery",
+        "google_search_remarketing":"Google Search",
         "":"Website"
     }
 
@@ -214,8 +215,8 @@ function storeLeadInSFDC(data,formName) {
 
 function storeLeadInDB(name, email, mobile, response, formName) {
     var currentUrl = window.location.href;
-    var utm_source = queryParameter('cstm_ppc_campaign', currentUrl);
-    var utm_medium = queryParameter('cstm_ppc_channel', currentUrl)
+    var utm_source = queryParameter('utm_source', currentUrl);
+    var utm_medium = queryParameter('utm_medium', currentUrl)
     var utm_campaign = queryParameter('cstm_ppc_campaign', currentUrl)
     var utm_adgroup = queryParameter('cstm_ppc_adgroup', currentUrl)
     var utm_keyword = queryParameter('cstm_ppc_keyword', currentUrl)
