@@ -144,15 +144,15 @@ function save_landing_pageinfo(elm) {
         "":"Website"
     }
 
-    var source  = (utm_medium) ? sourceMapping[utm_medium] : "Website";
+    var source  = (utm_source) ? sourceMapping[utm_source] : "Website";
 
     var data = {
         "name": name,
         "mobile": mobileno,
         "email": emailid,
         "source": source,
-        "comment":"URL:"+currentUrl.substring(0,255)+" UTM Source:"+utm_source+" UTM Medium:"+utm_medium,
-        "sub_source":utm_medium,
+        "comment":"URL:"+currentUrl.substring(0,255)+" UTM Source:"+utm_source+" UTM Medium:"+utm_medium+" Form:"+fsource,
+        "sub_source":utm_source,
         "project": project
 
     }
@@ -218,7 +218,7 @@ function storeLeadInDB(name, email, mobile, response, formName) {
     var utm_source = queryParameter('utm_source', currentUrl);
     var utm_medium = queryParameter('utm_medium', currentUrl)
     var utm_campaign = queryParameter('cstm_ppc_campaign', currentUrl)
-    var utm_adgroup = queryParameter('cstm_ppc_adgroup', currentUrl)
+    var utm_adgroup = formName;
     var utm_keyword = queryParameter('cstm_ppc_keyword', currentUrl)
     var utm_adset = queryParameter('cstm_ppc_adset', currentUrl)
     var utm_ad = queryParameter('cstm_ppc_ad', currentUrl)
