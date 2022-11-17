@@ -1123,7 +1123,8 @@
    jQuery(document).ready(function ($) {
       if (!Get_Cookie('popout')) {
          setTimeout(function () {
-            $('#main-pop').modal('show');
+            if (!Get_Cookie('popout'))
+            {$('#main-pop').modal('show');}
          }, 20000);
       }
       $('.modal .close').click(function () {
@@ -1139,14 +1140,17 @@
          // ---------------for model only-----
       $(".price-click").click(function () {
          $('#price-model').modal('show');
+         console.log("Set Cookie");
          Set_Cookie('popout', 'it works', '', 'index.html', '', '');
       });
       $(".i-am").click(function () {
          $('#iam-model').modal('show');
+         console.log("Set Cookie");
          Set_Cookie('popout', 'it works', '', 'index.html', '', '');
       });
       $(".dbroucher").click(function () {
          $('#brochure-model').modal('show');
+         console.log("Set Cookie");
          Set_Cookie('popout', 'it works', '', 'index.html', '', '');
       });
       // ---------------for model only-----
