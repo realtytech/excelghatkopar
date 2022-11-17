@@ -141,7 +141,7 @@ function save_landing_pageinfo(elm) {
     }
 
     if (name != "" && mobileno != "") {
-        $("#pageloader").fadeIn();
+        // $("#pageloader").fadeIn();
 
         if (elm == 'brochure-form') {
             document.getElementById('broucher1').click();
@@ -154,25 +154,25 @@ function save_landing_pageinfo(elm) {
 
     if (emailid == "") {
         alert('Please enter your email id');
-        $("#pageloader").fadeOut();
+    
         return;
     } else {
         if (!ValidateEmail(emailid)) {
             alert('Please enter a valid email id');
-            $("#pageloader").fadeOut();
+        
             return;
         }
 
     }
     if (mobileno == "") {
         alert('Please enter your valid mobile number');
-        $("#pageloader").fadeOut();
+    
         return;
     } else {
         const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
         if (!regex.test(mobileno)) {
             alert('Please enter your valid 10 digit mobile number');
-            $("#pageloader").fadeOut();
+        
 
             return;
         }
@@ -208,7 +208,7 @@ function save_landing_pageinfo(elm) {
     }
     $("#pageloader").fadeIn();
     storeLeadInEnrichr(data,fsource);
-    $("#pageloader").fadeOut();
+    
     return;
 
 
@@ -252,15 +252,17 @@ function storeLeadInSFDC(data,formName) {
         "headers": {
           "content-type": "application/json",          
         },
-        "processData": false,
-        "data": JSON.stringify(data)
+        "processData": true,
+        "data": JSON.stringify(data)       
       }
       
-      $.ajax(settings).always(function (response) {
+      $.ajax(settings).done(function (response) {
         console.log(response);
+
         storeLeadInDB(data["name"], data["email"], data["mobile"], JSON.stringify(response),formName);
         setTimeout(function redirect_response() { window.location.href = "response.html"; }, 2000)
-      }); 
+      });
+      
 
 }
 
@@ -349,8 +351,9 @@ function storeLeadInEnrichr(data,formName) {
         "data": JSON.stringify(data)
       }
       
-      $.ajax(settings).done(function (response) {
+      $.ajax(settings).always(function (response) {
         console.log(response);
+        Set_Cookie('formFilled', 'it works', '', 'index.html', '', '');
         storeLeadInDB(data["name"], data["email"], data["mobile"], JSON.stringify(response),formName);
         setTimeout(function redirect_response() { window.location.href = "response.html"; }, 2000)
       }); 
