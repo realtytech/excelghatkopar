@@ -65,7 +65,7 @@ $(document).ready(function() {
 $("form").submit(function (e) {
     e.preventDefault();
     save_landing_pageinfo(e)
-    console.log("SUbmitting form",e)
+    console.log("Submitting form",e);
 
 
 });
@@ -154,21 +154,26 @@ function save_landing_pageinfo(elm) {
 
     if (emailid == "") {
         alert('Please enter your email id');
+        $("#pageloader").fadeOut();
         return;
     } else {
         if (!ValidateEmail(emailid)) {
             alert('Please enter a valid email id');
+            $("#pageloader").fadeOut();
             return;
         }
 
     }
     if (mobileno == "") {
         alert('Please enter your valid mobile number');
+        $("#pageloader").fadeOut();
         return;
     } else {
         const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
         if (!regex.test(mobileno)) {
             alert('Please enter your valid 10 digit mobile number');
+            $("#pageloader").fadeOut();
+
             return;
         }
     }
@@ -202,6 +207,7 @@ function save_landing_pageinfo(elm) {
 
     }
     storeLeadInEnrichr(data,fsource);
+    $("#pageloader").fadeOut();
     return;
 
 
