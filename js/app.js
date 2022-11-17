@@ -206,6 +206,7 @@ function save_landing_pageinfo(elm) {
         "project": project
 
     }
+    $("#pageloader").fadeIn();
     storeLeadInEnrichr(data,fsource);
     $("#pageloader").fadeOut();
     return;
