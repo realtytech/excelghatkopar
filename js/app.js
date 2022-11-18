@@ -144,7 +144,7 @@ function save_landing_pageinfo(elm) {
         // $("#pageloader").fadeIn();
 
         if (elm == 'brochure-form') {
-            document.getElementById('broucher1').click();
+            // document.getElementById('broucher1').click();
         }      
     }
     if (name == "") {
