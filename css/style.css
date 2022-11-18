@@ -797,7 +797,25 @@ section ol {
 .padding {
     padding: 70px 0px;
 }
+.padding-1 {
+    padding: 20px 0px;
+}
 
+.padding-y {
+    padding: 0px 20px;
+}
+.offer,.dbroucher {
+	color: #b51e1e !important;
+	font-weight: bold;
+	padding: 10px;
+    font-size: large;
+	background-color: #fed501;
+	border: 5px solid #00a9b1;
+    text-transform: uppercase !important;
+}
+.dbroucher{
+    cursor: pointer;
+}
 .benifits {
     padding-top: 70px;
 }
@@ -2129,7 +2147,7 @@ margin-bottom: 23px;
 }
 
 .fixed-footer-cust {
-    background: #333;
+    background: #d03771;
     text-align: center;
     padding: 10px 0px 10px 0px;
     width: 100%;
@@ -3460,7 +3478,7 @@ margin: 0 auto; */
     color: #333 !important;
     border-color: #edf3fa;
     border-radius: 5px;
-    padding: 5px 19px 5px 18px;
+    padding: 0.25rem;
     transition: all 0.5s ease;
     font-weight: 800;
 }
